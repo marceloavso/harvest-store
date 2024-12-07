@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>Harvest Store</title>
+	<link rel="icon" type="image/x-icon" href="images/harvest_moon_icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+      
+    @import url('https://fonts.cdnfonts.com/css/funhouse');
+      
+      html, body{
+        height: 100%;
+      }
+      
+      body{
+      	background-image: url("images/harvest_moon_bg.png");
+        font-family: funhouse;
+        color: white;
+        display:grid;
+        grid-template-columns: 20% 60% 20%;
+        grid-template-rows: auto auto auto;
+        grid-column-gap: 5px;
+        overflow-x: hidden;
+      }
+      
+      a{
+        color: white;
+        text-decoration: none
+      }
+      
+      header{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+        grid-template-rows: 50% 50%;
+      }
+      
+      #logo{
+        background-image: url("images/madeira_bg.png");
+        width: 320px;
+        height: 164px;
+        color: white;
+        line-height: 164px;
+        text-align: center;
+        font-size: 25pt;
+        border-radius: 10%;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        justify-self: center;
+          
+      }
+      
+      #logo span{
+        filter: drop-shadow(2px 4px 1px black)
+      }
+      
+      #carrinho{
+        display: inline-block;
+        max-width: 40px;
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        align-self: end;
+        position: relative;
+      }
+      
+      #carrinho>a img{
+        width: 100%;
+        filter: drop-shadow(3px 3px 2px black)
+      }
+      
+      #carrinho>a>img:nth-of-type(2){
+        width: 42px;
+        display: none;
+        position: relative;
+        right: 1px;
+        top: 1.4px;
+      }
+      
+      
+      #carrinho:hover>a img{
+        display: none
+      }
+      
+      #carrinho:hover>a>img:nth-of-type(2){
+        display: initial;
+      }
+      
+      
+      nav{
+        width: 130px;
+        display: inline-block;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        justify-self: end;
+      }
+      nav div{
+        background-image: url("images/placa.png");
+        background-size: cover;
+        width: 130px;
+        height: 70px;
+        text-align: right;
+        line-height: 70px;
+        text-shadow: 2px 2px 1px black;
+      }
+      
+      a:hover img{
+        visibility: visible;        
+      }
+      
+      nav img{
+        width: 30px;
+        position: relative;
+        float: right;
+        right: 120px;
+        top: 30px;
+        transform: scaleX(-1);
+        visibility: hidden;
+      }
+      
+      .container{
+        border: solid #89672C 2px;
+        border-radius: 10px;
+        background-image: url("images/ground_bg.png");
+        margin: auto;
+        display: inline-block;
+               
+      }
+      
+      main{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        text-align: center;
+		width: 95%;
+      }
+      
+      .item{
+        color: white;
+        text-shadow: 2px 2px 1px black;
+        text-align: center;
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        display: inline-block;
+      }
+      
+      .item img{
+        max-width: 100%;
+        max-height: 70%;
+        filter: drop-shadow(6px 6px 5px black);
+      }
+      
+      .item img:hover{
+        animation: moveit 0.2s linear alternate infinite;
+      }
+      
+      h3{
+        filter: drop-shadow(2px 3px 1px black);
+      }
+      
+      footer{
+        width: 100%;
+        height: 161px;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        background-image: url("images/fence.png");
+        background-repeat: repeat-x;
+        position: relative;
+        top: 10px;
+        right: 5px;
+        align-self: end;
+      }
+      
+      footer small{
+        font-family: sans-serif;
+        color: #aca69c;
+        position: relative;
+        top: 85%;
+      }
+      @media (max-width: 340px){
+        
+        body{
+          grid-template-rows: auto auto auto auto;
+        }
+        
+        #logo{
+          width: 300px;
+          height: 155px;
+          background-size: contain;;
+        }
+        
+        #carrinho{
+          top: 35px;
+          max-width: 30px;
+        }
+        
+        nav{
+          width: 100%;
+          grid-column-start: 1;
+          grid-column-end: 3;
+          grid-row-start: 2;
+          grid-row-end: 3;
+          justify-self: center;
+        }
+        
+        nav div{
+          background-size: contain;
+          width: 60px;
+          height: 35px;
+          text-align: center;
+          line-height: 35px;
+          font-size: 8.5pt;
+          display: inline-block;
+          position: relative;
+          left: 20px;
+          margin-right: 3vw;
+        }
+        
+        nav img{
+          display: none;
+        }
+        
+        main{
+          grid-column-start: 1;
+          grid-column-end: 4;
+          grid-row-start: 3;
+          grid-row-end: 4;
+		  width: 95%;
+        }
+        
+        .item{
+          width: 100px;
+          height: 100px;
+        }
+        
+        footer{
+          grid-row-start: 4;
+          grid-row-end: 5;
+        }
+                
+      }
+      
+      @media (min-width: 341px) and (max-width: 480px) {
+        
+        body{
+          grid-template-rows: auto 60px auto auto;
+          overflow-x: initial
+        }
+        
+        #carrinho{
+          top: 45px;
+          left: 10px;
+        }
+        
+        nav{
+          width: 100%;
+          grid-column-start: 1;
+          grid-column-end: 3;
+          grid-row-start: 2;
+          grid-row-end: 3;
+          justify-self: center;
+        }
+        
+        nav div{
+          background-size: contain;
+          width: 85px;
+          height: 49px;
+          text-align: center;
+          line-height: 49px;
+          font-size: 9pt;
+          display: inline-block;
+        }
+        
+        nav div:hover{
+          filter: brightness(1.1);
+          transform: scale(1.2);
+        }
+        
+        nav img{
+          display: none;
+        }
+        
+        main{
+          grid-column-start: 1;
+          grid-column-end: 4;
+          grid-row-start: 3;
+          grid-row-end: 4;
+        }
+        
+        footer{
+          grid-row-start: 4;
+          grid-row-end: 5;
+        }
+        
+      }
+      
+      @media (min-width: 481px) and (max-width: 768px) {
+        
+        #carrinho{
+          left: 20px;
+        }
+        
+        nav{
+          justify-self: end;
+        }
+        
+        nav div{
+          background-size: contain;
+          width: 85px;
+          height: 49px;
+          line-height: 49px;
+          text-align: center;
+          font-size: 10pt;
+          position: relative;
+          left: 40px;
+          
+        }
+        
+        nav img{
+          right: 80px;
+          z-index: 1;
+        }
+      }     
+      
+      
+      @keyframes moveit{
+        to{transform: rotate(2deg);}
+        to{transform: rotate(-2deg);}
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+    <audio autoplay loop>
+      <source src="harvest_moon_theme.mp3">
+    </audio>
+    <header>
+      
+      <div id="logo">
+        
+        <a href="index.html"><span>Harvest Store</span></a>
+        
+      </div>
+      
+      <div id="carrinho">
+        <a href="carrinho.html"><img src="images/shipping_box.png" alt="Carrinho de Compras">
+        <img src="images/open_shipping_box.png" alt="Carrinho de Compras"></a>
+      </div>
+      
+    </header>
+    
+    <nav>
+      <a href="animais.html"><img src="images/selection_hand.png" alt="Seleção"><div>Animais</div></a>
+      <a href="frutas.html"><img src="images/selection_hand.png" alt="Seleção"><div>Frutas</div></a>
+      <a href="vegetais.html"><img src="images/selection_hand.png" alt="Seleção"><div>Vegetais</div></a>
+    </nav>
+    
+    <main class="container">
+      
+      <h3>
+        Recomendados
+      </h3>
+      
+      <div class="item">
+        <a href="mumu.html"><img src="images/mumu.png" alt="Imagem Produto Vaca">
+        <span>Mumu</span></a>
+      </div>
+      
+      <div class="item">
+        <a href="cocoh.html"><img src="images/coco.png" alt="Imagem Produto Galinha">
+        <span>Cocoh</span></a>
+      </div>
+      
+      <div class="item">
+        <a href="milho.html"><img src="images/corn.png" alt="Imagem Produto Milho">
+        <span>Milho</span></a>
+      </div>
+      
+      <div class="item">
+        <a href="uva.html"><img src="images/grapes.png" alt="Imagem Produto Uvas">
+        <span>Uva</span></a>
+      </div>
+      
+    </main>
+    
+    <footer>
+      
+      <small>By: Marcelo Soares, 2023.</small>
+      
+    </footer>
+  </body>
+</html>
